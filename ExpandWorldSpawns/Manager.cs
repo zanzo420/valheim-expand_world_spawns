@@ -70,11 +70,7 @@ public class Manager
       }
       EWS.LogInfo($"Reloading spawn data ({data.Count} entries).");
       HandleSpawnData.Override = data;
-      foreach (var system in SpawnSystem.m_instances)
-      {
-        system.m_spawnLists.Clear();
-        system.m_spawnLists.Add(new() { m_spawners = data });
-      }
+      SpawnSystem.m_instances.ForEach(HandleSpawnData.Set);
     }
     catch (Exception e)
     {
@@ -134,10 +130,16 @@ public class HandleSpawnData
       Manager.ToFile();
       Done = true;
     }
+    Set(__instance);
+  }
+
+  public static void Set(SpawnSystem system)
+  {
     if (Override != null)
     {
-      __instance.m_spawnLists.Clear();
-      __instance.m_spawnLists.Add(new() { m_spawners = Override });
+      while (system.m_spawnLists.Count > 1)
+        system.m_spawnLists.RemoveAt(system.m_spawnLists.Count - 1);
+      system.m_spawnLists[0].m_spawners = Override;
     }
   }
 }

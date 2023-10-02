@@ -126,7 +126,7 @@ public class SpawnZDO
     if (!Loader.Objects.TryGetValue(critter, out var objects)) return;
     foreach (var obj in objects)
     {
-      if (obj.Chance < 1f && UnityEngine.Random.value > obj.Chance) continue;
+      if (obj.Chance < 1f && Random.value > obj.Chance) continue;
       ExpandWorldData.Spawn.BPO(obj, spawnPoint, Quaternion.identity, Vector3.one, DataOverride, PrefabOverride, null);
     }
   }

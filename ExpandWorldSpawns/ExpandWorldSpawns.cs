@@ -11,7 +11,7 @@ public class EWS : BaseUnityPlugin
 {
   public const string GUID = "expand_world_spawns";
   public const string NAME = "Expand World Spawns";
-  public const string VERSION = "1.0";
+  public const string VERSION = "1.1";
 #nullable disable
   public static ManualLogSource Log;
 #nullable enable
@@ -25,8 +25,7 @@ public class EWS : BaseUnityPlugin
     ModRequired = true,
     IsLocked = true
   };
-  public static string ConfigName = $"{GUID}.cfg";
-  public static bool NeedsMigration = File.Exists(Path.Combine(Paths.ConfigPath, "expand_world.cfg")) && !File.Exists(Path.Combine(Paths.ConfigPath, ConfigName));
+  public static bool NeedsMigration = File.Exists(Path.Combine(Paths.ConfigPath, "expand_world.cfg")) && !File.Exists(Path.Combine(Paths.ConfigPath, "expand_world_spawns.cfg"));
   public void Awake()
   {
     Log = Logger;
