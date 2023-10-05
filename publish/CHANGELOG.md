@@ -1,3 +1,6 @@
+- v1.2
+  - Fixed for the new patch.
+
 - v1.1
   - Adds automatic backup system.
   - Improves compatibility with Spawn That mod.
