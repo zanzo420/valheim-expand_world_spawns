@@ -1,4 +1,4 @@
-# Expand World Data
+# Expand World Spawns
 
 Allows configuring spawns.
 
