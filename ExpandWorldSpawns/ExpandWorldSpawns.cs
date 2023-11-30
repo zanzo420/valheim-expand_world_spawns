@@ -6,12 +6,12 @@ using HarmonyLib;
 using Service;
 namespace ExpandWorld;
 [BepInPlugin(GUID, NAME, VERSION)]
-[BepInDependency("expand_world_data", BepInDependency.DependencyFlags.HardDependency)]
+[BepInDependency("expand_world_data", "1.21")]
 public class EWS : BaseUnityPlugin
 {
   public const string GUID = "expand_world_spawns";
   public const string NAME = "Expand World Spawns";
-  public const string VERSION = "1.2";
+  public const string VERSION = "1.3";
 #nullable disable
   public static ManualLogSource Log;
 #nullable enable
@@ -25,14 +25,12 @@ public class EWS : BaseUnityPlugin
     ModRequired = true,
     IsLocked = true
   };
-  public static bool NeedsMigration = File.Exists(Path.Combine(Paths.ConfigPath, "expand_world.cfg")) && !File.Exists(Path.Combine(Paths.ConfigPath, "expand_world_spawns.cfg"));
   public void Awake()
   {
     Log = Logger;
     ConfigWrapper wrapper = new("expand_spawns_config", Config, ConfigSync, () => { });
     Configuration.Init(wrapper);
-    Harmony harmony = new(GUID);
-    harmony.PatchAll();
+    new Harmony(GUID).PatchAll();
     try
     {
       if (ExpandWorldData.Configuration.DataReload)

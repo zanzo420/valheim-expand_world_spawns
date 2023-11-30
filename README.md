@@ -50,6 +50,7 @@ The file `expand_world/expand_spawns.yaml` is created when loading a world.
 - groundOffset (default: `0.5` meters): Spawns above the ground.
 - levelUpMinCenterDistance (default: `0` meters): Distance from the world center to enable higher creature levels. This is not scaled with the world size.
 - overrideLevelupChance (default: `-1` percent): Chance per level up (from the default 10%).
+- faction: Name of the faction. Requires using Expand World Factions.
 - data: ZDO data override. For example to change faction with Spawner Tweaks mod (`object copy` from World Edit Commands).
 - objects: Extra objects to spawn. Spawned on top of any obstacles. The spawning is skipped if 10 meters above the original position. Format is `id,posX,posZ,posY,chance,data`.
   - id: Prefab name.

@@ -1,3 +1,6 @@
+- v1.3
+  - Adds a new field `faction`. Requires using Expand World Factions.
+
 - v1.2
   - Fixed for the new patch.
 

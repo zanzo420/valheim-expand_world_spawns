@@ -10,6 +10,7 @@ public class Loader
 {
   public static Dictionary<SpawnSystem.SpawnData, ZDOData?> Data = new();
   public static Dictionary<SpawnSystem.SpawnData, List<BlueprintObject>> Objects = [];
+  private static readonly int HashFaction = "faction".GetStableHashCode();
 
   public static SpawnSystem.SpawnData FromData(Data data)
   {
@@ -52,6 +53,15 @@ public class Loader
     if (data.data != "")
     {
       Data[spawn] = ZDOData.Create(data.data);
+    }
+    if (data.faction != "")
+    {
+      var factionData = new ZDOData();
+      factionData.Strings[HashFaction] = data.faction;
+      if (Data.ContainsKey(spawn))
+        Data[spawn] = ZDOData.Merge(Data[spawn], factionData);
+      else
+        Data.Add(spawn, factionData);
     }
     if (data.objects != null)
     {
