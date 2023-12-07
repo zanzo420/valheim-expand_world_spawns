@@ -1,17 +1,16 @@
 ﻿using System;
-using System.IO;
 using BepInEx;
 using BepInEx.Logging;
 using HarmonyLib;
 using Service;
 namespace ExpandWorld;
 [BepInPlugin(GUID, NAME, VERSION)]
-[BepInDependency("expand_world_data", "1.21")]
+[BepInDependency("expand_world_data", "1.23")]
 public class EWS : BaseUnityPlugin
 {
   public const string GUID = "expand_world_spawns";
   public const string NAME = "Expand World Spawns";
-  public const string VERSION = "1.3";
+  public const string VERSION = "1.4";
 #nullable disable
   public static ManualLogSource Log;
 #nullable enable

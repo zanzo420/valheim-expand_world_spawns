@@ -1,3 +1,6 @@
+- v1.4
+  - Updated for the new Expand World Data features.
+
 - v1.3
   - Adds a new field `faction`. Requires using Expand World Factions.
 
